@@ -23,7 +23,13 @@ span = soup.find_all("span")
 
 date = span[5].string
 
-print(date)
+for n in span:
+	if 'am' in span[n].string:
+		print span[n].string
+		print 'Success'
+	if 'pm' in span[n].string:
+		print span[n].string
+		print 'Success'
 
 #pm = 'pm'
 #am = 'am'
