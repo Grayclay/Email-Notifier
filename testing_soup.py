@@ -27,4 +27,4 @@ for span_tag in soup.find_all("span"):
 	if 'pm' in span_tag.text:
 		dates.append(span_tag.text)
 	
-print dates[0]
+print dates
