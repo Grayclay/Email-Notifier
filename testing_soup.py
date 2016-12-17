@@ -19,21 +19,12 @@ response = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-span = soup.find_all("span")
+dates = []
 
-date = span[5].string
-
-for n in span:
-	if 'am' in span[n].string:
-		print span[n].string
-		print 'Success'
-	if 'pm' in span[n].string:
-		print span[n].string
-		print 'Success'
-
-#pm = 'pm'
-#am = 'am'
-#for n in span:
-#	date=span.string
-#	am in date
-#	print 'True'
+for span_tag in soup.find_all("span"):
+	if 'am' in span_tag.text:
+		dates.append(span_tag.text)
+	if 'pm' in span_tag.text:
+		dates.append(span_tag.text)
+	
+print dates[0]
