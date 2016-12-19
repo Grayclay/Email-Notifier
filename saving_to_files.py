@@ -6,7 +6,7 @@
 dates = ["1-27-2017"]
 
 with open("Dates.txt", "w") as write_file:
-	write_file.write("Date: %s" % dates[0])
+	write_file.write(dates[0])
 	
 with open("Dates.txt", "r") as read_file:
 	most_recent_date = read_file.readline()
