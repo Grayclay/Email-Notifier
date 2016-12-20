@@ -35,11 +35,9 @@ soup = BeautifulSoup(response.text, "html.parser")
 dates = []
 
 #iterate through the parsed HTML and extract dates
-for span_tag in soup.find_all("span"):
-	if 'am' in span_tag.text:
-		dates.append(span_tag.text)
-	if 'pm' in span_tag.text:
-		dates.append(span_tag.text)
+for item in soup.find_all(attrs={'class': 'p-byline__time'}):
+	print item.string
+	dates.append(item.string)
 
 #pull the last recorded article's date from a text file
 with open("dates.txt", "r") as read_file:
