@@ -36,7 +36,6 @@ dates = []
 
 #iterate through the parsed HTML and extract dates
 for item in soup.find_all(attrs={'class': 'p-byline__time'}):
-	print item.string
 	dates.append(item.string)
 
 #pull the last recorded article's date from a text file
