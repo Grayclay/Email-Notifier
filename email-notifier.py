@@ -39,14 +39,18 @@ for item in soup.find_all(attrs={'class': 'p-byline__time'}):
 	dates.append(item.string)
 
 #pull the last recorded article's date from a text file
-with open("dates.txt", "r") as read_file:
+with open("/Users/gclayton/Documents/Scripts/Local_Email_Script/dates.txt", "r") as read_file:
 	most_recent = read_file.readline()
 
 if most_recent == dates[0]:
+	with open("/Users/gclayton/Documents/Scripts/Local_Email_Script/log.txt", "a") as log_file:
+		log_file.write(str(now) + ": No Updates\n")
 	sys.exit()
 else:
-	with open("dates.txt", "w") as write_file:
+	with open("/Users/gclayton/Documents/Scripts/Local_Email_Script/dates.txt", "w") as write_file:
 		write_file.write(dates[0])
+	with open("/Users/gclayton/Documents/Scripts/Local_Email_Script/log.txt", "a") as log_file:
+		log_file.write(str(now) + ": Updated, New Article!\n")
 
 	# email the results
 	#sending addres
